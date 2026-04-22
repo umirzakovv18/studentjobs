@@ -1,0 +1,20 @@
+<!-- src/app/pages/login/login.component.html -->
+<div class="auth-container">
+  <h2>Войти в аккаунт</h2>
+
+  <div *ngIf="errorMsg" class="error-banner">{{ errorMsg }}</div>
+
+  <form (ngSubmit)="onLogin()">
+    <label>Логин</label>
+    <input type="text" [(ngModel)]="username" name="username" required placeholder="Введите логин" />
+
+    <label>Пароль</label>
+    <input type="password" [(ngModel)]="password" name="password" required placeholder="Введите пароль" />
+
+    <button type="submit" [disabled]="loading">
+      {{ loading ? 'Загрузка...' : 'Войти' }}
+    </button>
+  </form>
+
+  <p>Нет аккаунта? <a routerLink="/register">Зарегистрироваться</a></p>
+</div>
